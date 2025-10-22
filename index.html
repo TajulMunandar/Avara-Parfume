@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxe Fragrance - Elegance in Every Scent</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #8b5cf6;
+            --secondary: #ec4899;
+            --dark: #1e1b4b;
+            --light: #f8fafc;
+            --gold: #fbbf24;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        body::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        body::-webkit-scrollbar-track {
+            background: var(--dark);
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+        }
+
+        body::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--dark);
+            color: #333;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            background: rgba(30, 27, 75, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 15px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        .hero {
+            width: 100%;
+            height: 100%;
+            min-height: 100vh;
+
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.9), rgba(236, 72, 153, 0.9)),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%231e1b4b" width="1200" height="800"/><circle cx="200" cy="400" r="300" fill="%238b5cf6" opacity="0.1"/><circle cx="1000" cy="400" r="400" fill="%23ec4899" opacity="0.1"/></svg>');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .hero-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 20s infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            animation: fadeInUp 1s ease-out;
+            padding: 20px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+            text-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+
+            0%,
+            100% {
+                text-shadow: 0 5px 20px rgba(255, 255, 255, 0.3);
+            }
+
+            50% {
+                text-shadow: 0 5px 40px rgba(255, 255, 255, 0.6);
+            }
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.6);
+        }
+
+        section {
+            padding: 100px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3em;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 60px;
+        }
+
+        #products {
+            background: var(--light);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            animation: fadeInUp 0.6s ease-out backwards;
+        }
+
+        .product-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .product-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .product-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .product-card:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(139, 92, 246, 0.3);
+        }
+
+        .product-image {
+            height: 300px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5em;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        .product-info {
+            padding: 30px;
+        }
+
+        .product-info h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .product-info p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        #about {
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            height: 400px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8em;
+            box-shadow: 0 20px 50px rgba(139, 92, 246, 0.3);
+            animation: float-vertical 3s ease-in-out infinite;
+        }
+
+        @keyframes float-vertical {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .about-text h3 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .about-text p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        #catalog {
+            background: var(--light);
+        }
+
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .catalog-item {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .catalog-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.2);
+        }
+
+        .catalog-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .catalog-item h4 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .catalog-item p {
+            color: #666;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+
+        #fragrance {
+            background: white;
+        }
+
+        .fragrance-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .note-card {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.05), rgba(236, 72, 153, 0.05));
+            border-radius: 20px;
+            transition: all 0.4s ease;
+        }
+
+        .note-card:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1));
+        }
+
+        .note-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .note-card:nth-child(2) .note-icon {
+            animation-delay: 0.3s;
+        }
+
+        .note-card:nth-child(3) .note-icon {
+            animation-delay: 0.6s;
+        }
+
+        .note-card h4 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        #gallery {
+            background: var(--light);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            height: 300px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .gallery-item:hover::before {
+            left: 100%;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        #testimonials {
+            background: white;
+        }
+
+        .testimonial-slider {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .testimonial-card {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.05), rgba(236, 72, 153, 0.05));
+            padding: 50px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+        }
+
+        .testimonial-text {
+            font-size: 1.2em;
+            font-style: italic;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        #contact {
+            background: var(--light);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1);
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+        }
+
+        .contact-info h3 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            color: #666;
+        }
+
+        .contact-item span {
+            font-size: 1.5em;
+            margin-right: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5em;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px) rotate(360deg);
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                flex-direction: column;
+                background: rgba(30, 27, 75, 0.98);
+                width: 100%;
+                padding: 20px;
+                transition: right 0.3s ease;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .fragrance-container {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">✨ Avara Parfume</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#catalog">Catalog</a></li>
+                <li><a href="#fragrance">Fragrance</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" id="hero">
+        <div class="hero-particles" id="heroParticles"></div>
+        <div class="hero-content">
+            <h1>Avara Extrait de Parfume</h1>
+            <p>Setiap aroma bercerita, dan setiap semerbak membawa kenangan. Temukan wangi khasmu hari ini.</p>
+            <a href="#products" class="cta-button">Jelajahi Koleksi</a>
+        </div>
+    </section>
+
+    <section id="products">
+        <h2 class="section-title">Avara Signature Collection</h2>
+        <p class="section-subtitle">Pilihan aroma terfavorit pelanggan kami</p>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">💎</div>
+                <div class="product-info">
+                    <h3>Baccarat Rouge</h3>
+                    <p>Wangi mewah dengan sentuhan amber dan jasmine yang elegan. Aroma premium untuk tampil percaya
+                        diri.</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">🌸</div>
+                <div class="product-info">
+                    <h3>Gucci Bloom</h3>
+                    <p>Floral lembut dengan nuansa melati dan tuberose — feminin, segar, dan memikat sepanjang hari.</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">🔥</div>
+                <div class="product-info">
+                    <h3>Dior Sauvage</h3>
+                    <p>Perpaduan segar dan maskulin dari bergamot dan amberwood. Energi maskulin dalam setiap tetes.</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">🍫</div>
+                <div class="product-info">
+                    <h3>Rich Choco</h3>
+                    <p>Manis dan hangat seperti cokelat pekat. Aroma yang menggoda dan menenangkan untuk hari santai.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="catalog">
+        <h2 class="section-title">Kategori Aroma</h2>
+        <p class="section-subtitle">Temukan wangi yang paling menggambarkan dirimu</p>
+        <div class="catalog-grid">
+            <div class="catalog-item">
+                <div class="catalog-icon">🌺</div>
+                <h4>Floral</h4>
+                <p>Elegan dan romantis — seperti Gucci Bloom, Lovely, dan Jlo.Style.</p>
+            </div>
+            <div class="catalog-item">
+                <div class="catalog-icon">🍊</div>
+                <h4>Fresh & Citrus</h4>
+                <p>Segar dan energik — cocok untuk aktivitas sehari-hari, seperti Armani May Way dan Azzura.</p>
+            </div>
+            <div class="catalog-item">
+                <div class="catalog-icon">🌳</div>
+                <h4>Woody & Masculine</h4>
+                <p>Tegas dan misterius — untuk pria berkarakter seperti Dior Sauvage dan Dunhill Blue.</p>
+            </div>
+            <div class="catalog-item">
+                <div class="catalog-icon">🍦</div>
+                <h4>Sweet & Gourmand</h4>
+                <p>Hangat dan menggoda — dengan aroma vanilla, caramel, dan choco seperti Vanilla Cake dan Rich Choco.
+                </p>
+            </div>
+            <div class="catalog-item">
+                <div class="catalog-icon">🕌</div>
+                <h4>Oriental & Oud</h4>
+                <p>Eksotis dan mewah — aroma khas seperti Black Oud, Baccarat Rouge, dan Bio Aqua.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">Tentang Avara</h2>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="./images/bg.jpg" alt="" width="100%" height="100%" style="border-radius: 12px;">
+            </div>
+            <div class="about-text">
+                <h3>Setiap Aroma Adalah Cerita</h3>
+                <p>Avara lahir dari cinta terhadap seni wewangian. Kami percaya bahwa setiap orang memiliki aroma khas
+                    yang mampu merepresentasikan kepribadian dan kenangan mereka.</p>
+                <p>Dengan formulasi <strong>extrait de parfum</strong> yang tahan lama dan karakter aroma premium, Avara
+                    menghadirkan pengalaman wangi kelas dunia — dibuat dengan hati untuk setiap jiwa yang ingin
+                    berkesan.</p>
+                <p><strong>Misi Kami:</strong> Menyebarkan keanggunan dalam setiap aroma, menciptakan kesan yang tak
+                    terlupakan di setiap langkahmu.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <h2 class="section-title">Galeri Aroma Avara</h2>
+        <p class="section-subtitle">Keindahan dalam setiap botol</p>
+        <div class="gallery-grid">
+            <div class="gallery-item">💫</div>
+            <div class="gallery-item">🌹</div>
+            <div class="gallery-item">🔥</div>
+            <div class="gallery-item">💎</div>
+            <div class="gallery-item">🍫</div>
+            <div class="gallery-item">✨</div>
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <h2 class="section-title">Kata Mereka</h2>
+        <p class="section-subtitle">Cerita nyata dari para pengguna Avara</p>
+        <div class="testimonial-slider">
+            <div class="testimonial-card">
+                <div class="testimonial-avatar">👩</div>
+                <p class="testimonial-text">"Avara Rich Choco itu luar biasa! Wanginya tahan lama dan bikin aku lebih
+                    percaya diri. Banyak yang nanya parfumnya apa!"</p>
+                <p class="testimonial-author">- Nadia, Bandung</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-avatar">👨</div>
+                <p class="testimonial-text">"Dior Sauvage versi Avara aromanya elegan banget. Pas buat kerja dan acara
+                    malam, benar-benar kualitas premium lokal."</p>
+                <p class="testimonial-author">- Rizky, Jakarta</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-avatar">👩</div>
+                <p class="testimonial-text">"Aku jatuh cinta sama Vanilla Cake! Wanginya manis tapi classy, cocok banget
+                    buat aku yang suka aroma lembut."</p>
+                <p class="testimonial-author">- Ayu, Yogyakarta</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Hubungi Kami</h2>
+        <p class="section-subtitle">Dapatkan rekomendasi aroma terbaik untukmu</p>
+        <div class="contact-container">
+            <div class="contact-form">
+                <form id="contactForm">
+                    <input type="text" placeholder="Nama Anda" required>
+                    <input type="email" placeholder="Email Anda" required>
+                    <textarea placeholder="Pesan Anda" required></textarea>
+                    <button type="submit" class="submit-btn">Kirim Pesan</button>
+                </form>
+            </div>
+            <div class="contact-info">
+                <h3>Kontak Avara</h3>
+                <div class="contact-item">
+                    <span>📞</span>
+                    <div>
+                        <strong>Telepon:</strong>
+                        <p>+62 812 3456 7890</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span>📧</span>
+                    <div>
+                        <strong>Email:</strong>
+                        <p>info@avara-parfume.id</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span>📍</span>
+                    <div>
+                        <strong>Alamat:</strong>
+                        <p>Jl. Wangi No. 8, Bandung, Indonesia</p>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="#" title="Instagram">📸</a>
+                    <a href="#" title="TikTok">🎵</a>
+                    <a href="#" title="Shopee">🛍️</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>
+            &copy; 2025
+            <a href="https://www.instagram.com/devdadakan.id?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                target="_blank" style="color: #4CAF50; text-decoration: none; font-weight: bold;">
+                Developer Dadakan
+            </a>. All rights reserved.
+        </p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+        // Hero particles effect
+        const heroParticles = document.getElementById('heroParticles');
+        const numParticles = 30;
+        for (let i = 0; i < numParticles; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            const size = Math.random() * 8 + 4 + 'px';
+            particle.style.width = size;
+            particle.style.height = size;
+            particle.style.left = Math.random() * 100 + 'vw';
+            particle.style.top = Math.random() * 100 + 'vh';
+            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            heroParticles.appendChild(particle);
+        }
+        const contactForm = document.getElementById('contactForm');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Simulasikan pengiriman data
+            setTimeout(() => {
+                // Tampilkan SweetAlert konfirmasi
+                Swal.fire({
+                    title: 'Pesan Terkirim!',
+                    text: 'Terima kasih telah menghubungi kami. Kami akan segera membalas pesan Anda.',
+                    icon: 'success',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#4CAF50'
+                }).then(() => {
+                    // Kosongkan form setelah alert ditutup
+                    contactForm.reset();
+                });
+            }, 500);
+        });
+    </script>
+</body>
+
+</html>
